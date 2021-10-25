@@ -1,7 +1,13 @@
 from PIL import Image
 from os import listdir,rename
 from os.path import isfile, join
-NAME = 'UQ Holder\ '[:-1]
+
+print('Enter the Name of the PDF')
+pdf_name = input() 
+
+print("enter the Name of the folder where the pics are stored")
+F = input()
+NAME = F+'\ '[:-1]
 
 Ufiles = [f for f in listdir(NAME) if isfile(join(NAME, f))]
 
@@ -42,7 +48,7 @@ for i in Ufiles:
 total = len(Ufiles)
 out = []
 count = 1
-print(Ufiles)
+#print(Ufiles)
 
 for i in Ufiles:
         if i != 'desktop.ini':
@@ -54,5 +60,5 @@ for i in Ufiles:
                         print(count,' done out of a total of :',total)
                 count+=1
 print('generating PDF')
-out[0].save('output.pdf',save_all=True, append_images=out[1:])
+out[0].save(pdf_name+'.pdf',save_all=True, append_images=out[1:])
 
